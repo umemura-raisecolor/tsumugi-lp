@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>「最初の1本」7日間ワークシート｜つむぎ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F1E8; --paper:#FFFCF7; --ink:#2F2626; --sub:#5E4F4F; --mute:#7A6B6B;
+  --rose:#A64B62; --rose-dark:#7E3548; --line:#E3D7C6; --line2:#E8DCCB; --soft:#F3E4E4;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;font-size:16.5px;line-height:1.95}
+a{color:var(--rose)} a:hover{color:var(--rose-dark)}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+.mincho{font-family:'Shippori Mincho',serif}
+.eyebrow{font-size:13px;letter-spacing:.18em;color:var(--rose);font-weight:700}
+
+header{padding:20px 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-family:'Shippori Mincho',serif;font-weight:700;font-size:20px;letter-spacing:.08em}
+.logo span{font-size:13px;font-weight:500;color:var(--mute);letter-spacing:.12em}
+.badge{font-size:12.5px;font-weight:700;color:var(--rose);border:1px solid var(--rose);border-radius:999px;padding:4px 14px;letter-spacing:.06em}
+
+.hero{padding:36px 0 48px}
+.hero h1{margin:16px 0 0;font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(28px,6vw,44px);line-height:1.5}
+.hero p.lead{margin:22px 0 0;font-family:'Shippori Mincho',serif;font-size:18.5px;line-height:2.1}
+.hero p.sub{margin:14px 0 0;color:var(--sub)}
+
+.box{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:26px 24px}
+.how{margin:0 0 40px}
+.how h2{margin:0 0 14px;font-family:'Shippori Mincho',serif;font-size:21px}
+.how ol{margin:0;padding-left:1.4em}
+.how li{margin:0 0 6px}
+
+.progress{position:sticky;top:0;z-index:5;background:rgba(247,241,232,.96);backdrop-filter:blur(4px);border-bottom:1px solid var(--line2);padding:12px 0}
+.progress .row{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--sub);gap:12px}
+.bar{margin-top:8px;height:8px;background:var(--line);border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--rose);transition:width .35s ease}
+.reset{background:none;border:0;color:var(--mute);font:inherit;font-size:13px;cursor:pointer;text-decoration:underline;padding:4px 0}
+
+.day{margin:28px 0 0;background:var(--paper);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.day.done{border-color:var(--rose)}
+.day-head{display:flex;gap:18px;align-items:flex-start;padding:24px 24px 0}
+.num{flex:0 0 auto;width:62px;height:62px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
+.num small{font-size:10.5px;letter-spacing:.14em;color:var(--mute);font-weight:700}
+.num b{font-family:'Shippori Mincho',serif;font-size:24px;color:var(--rose)}
+.day.done .num{background:var(--rose);border-color:var(--rose)}
+.day.done .num small,.day.done .num b{color:#fff}
+.day-head h3{margin:4px 0 0;font-family:'Shippori Mincho',serif;font-size:clamp(20px,4.4vw,24px);line-height:1.5}
+.day-head .goal{margin:6px 0 0;color:var(--sub);font-size:15px}
+.day-body{padding:18px 24px 24px}
+.gift{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.gift span{font-size:13px;background:var(--soft);color:var(--rose-dark);border-radius:4px;padding:3px 10px;font-weight:500}
+.tasks{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.tasks li{border-bottom:1px solid var(--line)}
+.tasks label{display:flex;gap:14px;align-items:flex-start;padding:14px 2px;cursor:pointer}
+.tasks input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:22px;height:22px;margin-top:5px;border:1.5px solid var(--rose);border-radius:4px;background:#fff;cursor:pointer;display:grid;place-content:center}
+.tasks input::after{content:"";width:11px;height:6px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.tasks input:checked{background:var(--rose)}
+.tasks input:checked::after{opacity:1}
+.tasks input:checked + span{color:var(--mute);text-decoration:line-through;text-decoration-color:rgba(166,75,98,.5)}
+.tasks .hint{display:block;font-size:13.5px;color:var(--mute);text-decoration:none}
+.output{margin:16px 0 0;padding:14px 16px;background:var(--bg);border-left:3px solid var(--rose);font-size:15px}
+.output b{color:var(--rose-dark)}
+.tsumugi{margin:14px 0 0;font-family:'Shippori Mincho',serif;font-size:15.5px;color:var(--sub);line-height:2}
+
+.finish{margin:48px 0 0;text-align:center;padding:40px 24px}
+.finish h2{margin:10px 0 0;font-family:'Shippori Mincho',serif;font-size:clamp(24px,5vw,32px);line-height:1.6}
+.finish p{margin:18px auto 0;max-width:560px}
+.btns{margin-top:28px;display:flex;flex-direction:column;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:4px;text-decoration:none;font-weight:700;width:100%;max-width:360px}
+.btn.primary{background:var(--rose);color:#fff}
+.btn.primary:hover{background:var(--rose-dark);color:#fff}
+.btn.ghost{border:1.5px solid var(--ink);color:var(--ink);font-weight:500}
+.note{margin:40px 0 0;font-size:13.5px;color:var(--mute);text-align:center}
+footer{padding:40px 0 56px;text-align:center;font-size:13px;color:var(--mute)}
+
+@media (max-width:520px){
+  body{font-size:16px}
+  .day-head{padding:20px 18px 0;gap:14px}
+  .day-body{padding:16px 18px 20px}
+  .num{width:52px;height:52px}
+  .num b{font-size:20px}
+  .box{padding:22px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">つむぎ <span>Tsumugi</span></div>
+    <div class="badge">感想をくださった方 限定</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">SPECIAL GIFT</div>
+    <h1>「最初の1本」<br>7日間ワークシート</h1>
+    <p class="lead">10大特典を、<br>どの順番で、どう使えばいいのか。<br>その答えを、1日1ステップにまとめました。</p>
+    <p class="sub">ロードマップが「全体の地図」なら、これは「今日歩く道」。1日30分〜1時間ほどで進められる量にしています。</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="box how">
+    <h2>使い方</h2>
+    <ol>
+      <li>1日1つ、上から順番に進めてください。</li>
+      <li>終わったものから、チェックを入れていきます。</li>
+      <li>特典は、公式LINEのリッチメニュー「10大特典」から開けます。</li>
+      <li>1日で終わらなくても大丈夫。止まった日から、また続きを。</li>
+    </ol>
+  </div>
+</div>
+
+<div class="progress" aria-live="polite">
+  <div class="wrap">
+    <div class="row">
+      <span id="progressText">0 / 0 完了</span>
+      <button class="reset" id="resetBtn" type="button">チェックをリセット</button>
+    </div>
+    <div class="bar"><i id="barFill"></i></div>
+  </div>
+</div>
+
+<main class="wrap" id="days">
+
+  <article class="day" data-day="0">
+    <div class="day-head">
+      <div class="num"><small>DAY</small><b>0</b></div>
+      <div>
+        <h3>まず、地図を眺める</h3>
+        <p class="goal">今日のゴール：7日後の自分を、1行で決める</p>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="gift"><span>① 収益化完全ロードマップ</span></div>
+      <ul class="tasks">
+        <li><label><input type="checkbox"><span>ロードマップを、5分だけ通して眺める<span class="hint">全部理解しなくてOK。「こんな流れなんだ」で十分です</span></span></label></li>
+        <li><label><input type="checkbox"><span>いちばん気になったステップに、印をつける</span></label></li>
+        <li><label><input type="checkbox"><span>7日後のゴールを1行で書く<span class="hint">例：「100円の恋愛note記事を1本、公開する」</span></span></label></li>
+      </ul>
+      <div class="output"><b>今日の成果物：</b>7日後のゴール（1行）</div>
+    </div>
+  </article>
+
+  <article class="day" data-day="1">
+    <div class="day-head">
+      <div class="num"><small>DAY</small><b>1</b></div>
+      <div>
+        <h3>コンセプトを決める</h3>
+        <p class="goal">今日のゴール：「誰の、どんな悩みを、どう変えるか」を1文にする</p>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="gift"><span>⑦ コンセプト診断シート</span></div>
+      <ul class="tasks">
+        <li><label><input type="checkbox"><span>コンセプト診断シートの質問に、思いつくまま答える</span></label></li>
+        <li><label><input type="checkbox"><span>答えをもとに、コンセプトを1文にまとめる<span class="hint">例：「彼のLINEに振り回される40代女性が、自分から心地よい距離をつくれるようになる」</span></span></label></li>
+        <li><label><input type="checkbox"><span>声に出して読んでみて、言いにくい言葉を直す</span></label></li>
+      </ul>
+      <div class="output"><b>今日の成果物：</b>コンセプト（1文）</div>
+      <p class="tsumugi">完璧じゃなくて大丈夫。書きながら、何度でも変えていいものです。</p>
+    </div>
+  </article>
+
+  <article class="day" data-day="2">
+    <div class="day-head">
+      <div class="num"><small>DAY</small><b>2</b></div>
+      <div>
+        <h3>あなたの経験から、テーマを出す</h3>
+        <p class="goal">今日のゴール：最初に書くテーマを1つに決める</p>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="gift"><span>⑤ 商品化アイデア出しプロンプト集</span><span>⑥ 深掘り＆完全覚醒プロンプト集</span></div>
+      <ul class="tasks">
+        <li><label><input type="checkbox"><span>⑤のプロンプトに自分の経験を入れて、テーマ案を出す<span class="hint">恋愛の失敗談、周りから相談されること、昔の自分に言いたいこと</span></span></label></li>
+        <li><label><input type="checkbox"><span>出てきた案から、「書いてみたい」と思えるものを3つ選ぶ</span></label></li>
+        <li><label><input type="checkbox"><span>⑥で1つを深掘りして、最初のテーマに決める</span></label></li>
+      </ul>
+      <div class="output"><b>今日の成果物：</b>最初に書くテーマ（1つ）</div>
+      <p class="tsumugi">迷ったら、「いちばん自分が苦しかったこと」を選んでみて。熱量が、そのまま文章に乗ります。</p>
+    </div>
+  </article>
+
+  <article class="day" data-day="3">
+    <div class="day-head">
+      <div class="num"><small>DAY</small><b>3</b></div>
+      <div>
+        <h3>企画と目次をつくる</h3>
+        <p class="goal">今日のゴール：5〜7項目の目次をつくる</p>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="gift"><span>② 神プロンプト全集</span><span>③ 実録プロンプト出力サンプル3選</span></div>
+      <ul class="tasks">
+        <li><label><input type="checkbox"><span>③のサンプルを1つ読んで、完成イメージをつかむ</span></label></li>
+        <li><label><input type="checkbox"><span>②の市場分析プロンプトで、読者の悩みと競合を洗い出す</span></label></li>
+        <li><label><input type="checkbox"><span>目次を5〜7項目でつくる<span class="hint">「悩みへの共感 → 原因 → 解決のヒント → 次の一歩」の流れが基本です</span></span></label></li>
+      </ul>
+      <div class="output"><b>今日の成果物：</b>記事の目次（5〜7項目）</div>
+    </div>
+  </article>
+
+  <article class="day" data-day="4">
+    <div class="day-head">
+      <div class="num"><small>DAY</small><b>4</b></div>
+      <div>
+        <h3>本文を書く</h3>
+        <p class="goal">今日のゴール：最後まで通った下書きを1本つくる</p>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="gift"><span>② 神プロンプト全集</span></div>
+      <ul class="tasks">
+        <li><label><input type="checkbox"><span>②の本文作成プロンプトに目次を入れて、下書きを出す</span></label></li>
+        <li><label><input type="checkbox"><span>あなたの体験エピソードを、1つ書き足す<span class="hint">AIには書けない部分です。ここが「あなたから買う理由」になります</span></span></label></li>
+        <li><label><input type="checkbox"><span>声に出して読み、つっかえたところを直す</span></label></li>
+      </ul>
+      <div class="output"><b>今日の成果物：</b>本文の下書き（1本）</div>
+      <p class="tsumugi">今日がいちばんの山場。60点で大丈夫です。出したものだけが、育っていきます。</p>
+    </div>
+  </article>
+
+  <article class="day" data-day="5">
+    <div class="day-head">
+      <div class="num"><small>DAY</small><b>5</b></div>
+      <div>
+        <h3>売り場を整える</h3>
+        <p class="goal">今日のゴール：「公開」ボタンを押せる状態にする</p>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="gift"><span>⑧「売れるBrain企画」プロンプト集</span></div>
+      <ul class="tasks">
+        <li><label><input type="checkbox"><span>タイトルと価格を決める<span class="hint">最初は100円〜でOK。売れた実績とレビューが、次の値上げの根拠になります</span></span></label></li>
+        <li><label><input type="checkbox"><span>⑧のプロンプトで、販売ページの構成と見せ方をチェックする</span></label></li>
+        <li><label><input type="checkbox"><span>note・Brainなどに記事を入れて、公開する（まずは下書き保存でもOK）</span></label></li>
+      </ul>
+      <div class="output"><b>今日の成果物：</b>公開できる状態の販売ページ</div>
+    </div>
+  </article>
+
+  <article class="day" data-day="6">
+    <div class="day-head">
+      <div class="num"><small>DAY</small><b>6</b></div>
+      <div>
+        <h3>届ける</h3>
+        <p class="goal">今日のゴール：告知を1本、世に出す</p>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="gift"><span>⑨ SNS告知文作成プロンプト集</span></div>
+      <ul class="tasks">
+        <li><label><input type="checkbox"><span>4つのパターンから、今の自分に合うものを1つ選ぶ</span></label></li>
+        <li><label><input type="checkbox"><span>告知文を出して、自分の言葉に言い換える</span></label></li>
+        <li><label><input type="checkbox"><span>X・インスタ・スタエフなど、どこか1か所で告知する</span></label></li>
+      </ul>
+      <div class="output"><b>今日の成果物：</b>告知（1本）</div>
+      <p class="tsumugi">少し勇気がいる日ですね。でも、知られていないものは、誰にも選ばれません。</p>
+    </div>
+  </article>
+
+  <article class="day" data-day="7">
+    <div class="day-head">
+      <div class="num"><small>DAY</small><b>7</b></div>
+      <div>
+        <h3>受け皿をつくって、振り返る</h3>
+        <p class="goal">今日のゴール：次につながる準備と、7日間の振り返り</p>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="gift"><span>④ LINEステップ配信 実践ミニ講座</span><span>⑩ 実践チェックリスト</span></div>
+      <ul class="tasks">
+        <li><label><input type="checkbox"><span>④を読み、買ってくれた人へのお礼メッセージを1通用意する</span></label></li>
+        <li><label><input type="checkbox"><span>⑩のチェックリストで確認して、漏れを1つ直す</span></label></li>
+        <li><label><input type="checkbox"><span>7日間で「できたこと」を3つ書き出す</span></label></li>
+      </ul>
+      <div class="output"><b>今日の成果物：</b>お礼メッセージ ＋ できたこと3つ</div>
+    </div>
+  </article>
+
+  <section class="box finish">
+    <div class="eyebrow">COMPLETE</div>
+    <h2>7日間、おつかれさまでした。</h2>
+    <p>最初の1本を出せた人は、もう「いつかやりたい人」ではありません。<br>ここから先は、積み上げていくだけです。</p>
+    <p>完走できたら、公式LINEで「完走しました」と教えてくださいね。<br>どんな1本ができたか、聞かせてもらえたら嬉しいです。</p>
+    <div class="btns">
+      <a class="btn primary" href="https://lin.ee/qHoiPLr">公式LINEで報告する</a>
+      <a class="btn ghost" href="https://note.com/tsumugi_relove/membership/info">次の1本を一緒に育てる（メンバーシップ）</a>
+    </div>
+  </section>
+
+  <p class="note">このページは、10大特典の感想をくださった方への限定プレゼントです。<br>URLの共有はお控えいただけますと幸いです。</p>
+</main>
+
+<footer>© つむぎ｜Tsumugi</footer>
+
+<script>
+(function(){
+  var KEY = 'tsumugi-7days-v1';
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.tasks input[type=checkbox]'));
+  var saved = [];
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) { saved = []; }
+  boxes.forEach(function(b, i){ b.checked = !!saved[i]; });
+
+  function update(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    document.getElementById('progressText').textContent = done + ' / ' + boxes.length + ' 完了';
+    document.getElementById('barFill').style.width = (boxes.length ? done / boxes.length * 100 : 0) + '%';
+    document.querySelectorAll('.day').forEach(function(day){
+      var cb = day.querySelectorAll('input[type=checkbox]');
+      var all = cb.length > 0 && Array.prototype.every.call(cb, function(b){ return b.checked; });
+      day.classList.toggle('done', all);
+    });
+    try { localStorage.setItem(KEY, JSON.stringify(boxes.map(function(b){ return b.checked; }))); } catch(e) {}
+  }
+  boxes.forEach(function(b){ b.addEventListener('change', update); });
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    if (!confirm('チェックをすべて外しますか？')) return;
+    boxes.forEach(function(b){ b.checked = false; });
+    update();
+  });
+  update();
+})();
+</script>
+</body>
+</html>
