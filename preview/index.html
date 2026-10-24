@@ -162,6 +162,9 @@ section{padding:clamp(80px,10vw,140px) 0;position:relative}
 .res-main h3{font-size:clamp(20px,2vw,26px)}
 .stars{color:var(--gold-lt);letter-spacing:.15em;font-size:20px;margin-top:20px}
 .stars span{color:#fff;font-family:var(--serif);letter-spacing:0;margin-left:10px;font-size:18px}
+.res-photo{margin:clamp(40px,5vw,64px) 0 0;border-radius:20px;overflow:hidden;aspect-ratio:16/7}
+.res-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+@media (max-width:699px){.res-photo{aspect-ratio:4/3}}
 .res-text{margin-top:clamp(48px,6vw,72px);display:grid;gap:28px}
 @media (min-width:900px){.res-text{grid-template-columns:1fr 1fr;gap:72px}}
 .res-text p{margin:0}
@@ -229,6 +232,11 @@ section{padding:clamp(80px,10vw,140px) 0;position:relative}
 .final{background:var(--ink);color:#fff;text-align:center;overflow:hidden}
 .final::before{content:"";position:absolute;left:50%;top:50%;width:900px;height:900px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(176,141,87,.2),transparent 60%);pointer-events:none}
 .final .wrap{position:relative}
+.final-grid{display:grid;gap:40px;align-items:center}
+@media (min-width:960px){.final-grid{grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);gap:56px;text-align:left}.final-grid .flow{justify-content:flex-start}.final-grid p,.final-grid .worry{margin-left:0}}
+.final-photo{margin:0 auto;width:min(320px,80%);aspect-ratio:2/3;border-radius:200px 200px 16px 16px;overflow:hidden;background:#E9E9EE;box-shadow:0 0 0 1px rgba(212,185,138,.5),0 30px 60px rgba(0,0,0,.35)}
+.final-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+
 .final h2{font-size:clamp(28px,3.8vw,50px);line-height:1.6}
 .final .worry{margin:40px auto 0;font-family:var(--serif);font-size:clamp(18px,1.8vw,22px);line-height:2.1;color:var(--gold-lt)}
 .final p{max-width:40em;margin:28px auto 0;color:#C9CDD6}
@@ -381,6 +389,7 @@ footer a{text-decoration:none;color:#C9CDD6}
         <h3 style="margin-top:10px">戦略的アプローチとAI活用により、ゼロからのマネタイズ構造を構築</h3>
       </div>
     </div>
+    <figure class="res-photo"><img src="tsumugi-pc.jpg" alt="パソコンで作業するつむぎ" loading="lazy"></figure>
     <div class="res-text">
       <p>Brainで初めて購入通知が届き、高評価レビューをいただいたとき、画面を見つめながら胸がいっぱいになりました。数字そのもの以上に、「自分の経験が誰かの役に立った」という事実が何より嬉しかったんですよね。</p>
       <p class="big">「私には無理」と思っている方にこそお伝えしたい。正しい「型」と手法さえ知れば、誰でも一歩ずつ積み上げていくことができます。</p>
@@ -448,7 +457,8 @@ footer a{text-decoration:none;color:#C9CDD6}
 
 <!-- FINAL CTA -->
 <section class="final">
-  <div class="wrap">
+  <div class="wrap final-grid">
+    <div class="final-copy">
     <h2>実績ゼロから書いた記事を<br>“資産”に変えるための特典カタログ</h2>
     <p class="worry">「自分の強みが分からない……」<br>「コンテンツを作っても1冊も売れなかったらどうしよう……」</p>
     <p>そんな悩みを抱える方でも、ステップ順に進めるだけで、ここまで一気に完結できる実践型ツール集です。</p>
@@ -461,6 +471,8 @@ footer a{text-decoration:none;color:#C9CDD6}
       <span class="spark s1" aria-hidden="true"></span><span class="spark s2" aria-hidden="true"></span>
     </a>
     <span class="note">登録無料</span>
+    </div>
+    <figure class="final-photo"><img src="tsumugi-full.jpg" alt="つむぎ" loading="lazy"></figure>
   </div>
 </section>
 
