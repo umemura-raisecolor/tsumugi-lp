@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>つむぎ｜Tsumugi - AI×恋愛コンテンツで、発信を“資産”に変える</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { brand: { beige:'#FAF7F2', pink:'#F6E9E9', darkpink:'#E3CACA', brown:'#5C4A42', gold:'#C5A880', lightgold:'#E8DCC8', white:'#FFFFFF' } },
+    fontFamily: { sans:['"Noto Sans JP"','sans-serif'], serif:['"Shippori Mincho"','serif'] }
+  } }
+}
+</script>
+<style>
+body{color:#5C4A42;background-color:#FAF7F2}
+.font-serif{letter-spacing:0.05em}
+.nw{white-space:nowrap}
+.gradient-text{background:linear-gradient(135deg,#C5A880 0%,#a88b64 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cta-btn{background:linear-gradient(135deg,#C5A880,#dbae75);transition:all .3s ease;box-shadow:0 4px 15px rgba(197,168,128,.3)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(197,168,128,.4);background:linear-gradient(135deg,#d3b890,#e2bb85)}
+.glass-card{background:rgba(255,255,255,.8);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.5);box-shadow:0 10px 30px rgba(92,74,66,.05)}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-12px)}100%{transform:translateY(0)}}
+.animate-float{animation:float 6s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.animate-float{animation:none}}
+#mobile-menu{transition:max-height .3s ease-in-out,opacity .3s ease-in-out;max-height:0;opacity:0;overflow:hidden}
+#mobile-menu.open{max-height:400px;opacity:1}
+.prose-tsumugi p{margin:0 0 1.6em;line-height:2}
+</style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-gold selection:text-white">
+
+<!-- Header -->
+<header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-pink/50 transition-all duration-300 shadow-sm" id="header">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="#" class="font-serif text-2xl font-semibold text-brand-brown tracking-widest flex items-center gap-2">
+        <span class="text-brand-gold"><i class="fa-solid fa-pen-nib"></i></span>
+        つむぎ <span class="text-sm font-sans font-normal text-brand-brown/60 ml-2 mt-1 hidden sm:inline-block">| Tsumugi</span>
+      </a>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#worries" class="text-brand-brown/80 hover:text-brand-gold text-sm font-medium transition-colors">お悩み</a>
+        <a href="#story" class="text-brand-brown/80 hover:text-brand-gold text-sm font-medium transition-colors">わたしのこと</a>
+        <a href="#results" class="text-brand-brown/80 hover:text-brand-gold text-sm font-medium transition-colors">実績</a>
+        <a href="#media" class="text-brand-brown/80 hover:text-brand-gold text-sm font-medium transition-colors">発信メディア</a>
+        <a href="#gifts" class="text-brand-gold font-semibold hover:text-brand-brown text-sm transition-colors flex items-center gap-1"><i class="fa-solid fa-gift"></i> 10大特典</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden text-brand-brown focus:outline-none p-2" aria-label="メニュー">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-brand-pink">
+    <div class="px-4 pt-2 pb-6 space-y-2 text-center">
+      <a href="#worries" class="block px-3 py-3 text-brand-brown/80 hover:bg-brand-beige rounded-md text-base">お悩み</a>
+      <a href="#story" class="block px-3 py-3 text-brand-brown/80 hover:bg-brand-beige rounded-md text-base">わたしのこと</a>
+      <a href="#results" class="block px-3 py-3 text-brand-brown/80 hover:bg-brand-beige rounded-md text-base">実績</a>
+      <a href="#media" class="block px-3 py-3 text-brand-brown/80 hover:bg-brand-beige rounded-md text-base">発信メディア</a>
+      <a href="#gifts" class="block px-3 py-3 text-brand-gold font-medium hover:bg-brand-beige rounded-md text-base">10大特典</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-brand-beige min-h-[90vh] flex items-center">
+  <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-pink opacity-50 blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 rounded-full bg-brand-lightgold opacity-40 blur-3xl"></div>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      <div class="text-center lg:text-left">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-white text-brand-gold text-sm font-bold tracking-wider mb-6 shadow-sm border border-brand-lightgold">AI × 恋愛コンテンツ</div>
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-brand-brown"><span class="nw">発信を<span class="gradient-text">“資産”</span>に変える</span></h1>
+        <p class="font-serif text-lg sm:text-xl text-brand-brown mb-3 leading-relaxed">書いた記事が、収益になるまでの<br>ヒントをお届けします。</p>
+        <p class="text-base text-brand-brown/80 mb-10 leading-relaxed">自分の経験・知識を活かし、発信を「一生ものの価値」へ。</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="https://lin.ee/qHoiPLr" target="_blank" rel="noopener noreferrer" class="cta-btn text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-3 w-full sm:w-auto group">
+            <i class="fab fa-line text-2xl group-hover:scale-110 transition-transform"></i>公式LINEで10大特典を受け取る
+          </a>
+        </div>
+        <p class="mt-4 text-xs text-brand-brown/60">※登録無料。いつでもブロックできます。</p>
+      </div>
+      <div class="relative max-w-sm mx-auto w-full">
+        <div class="animate-float relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white">
+          <img src="tsumugi.jpg" alt="つむぎ（Tsumugi）のプロフィール写真" class="w-full aspect-square object-cover" style="object-position:50% 20%">
+          <div class="px-6 py-5 text-left">
+            <div class="font-serif text-xl font-bold">つむぎ <span class="text-sm font-normal text-brand-brown/60">Tsumugi</span></div>
+            <div class="mt-2 text-sm leading-relaxed text-brand-brown/80">経営戦略コンサルタント出身／二度の離婚を経験／婚活・出会いパーティーに50回以上</div>
+            <div class="mt-3 font-serif text-brand-gold">遠回りの数だけ、伝えられることがある。</div>
+          </div>
+        </div>
+        <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-pink rounded-full"></div>
+        <div class="absolute -top-6 -right-6 w-24 h-24 bg-brand-gold/20 rounded-full"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Worries -->
+<section id="worries" class="py-20 lg:py-28 bg-white relative scroll-mt-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-brown mb-4">こんなお悩みありませんか？</h2>
+      <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full"></div>
+      <p class="mt-6 text-brand-brown/70 leading-relaxed">頑張って記事を書いているのに、なぜか成果や収益につながらない……。<br class="hidden sm:block">そんなモヤモヤを抱えていませんか？</p>
+    </div>
+    <div class="glass-card rounded-3xl p-6 md:p-12 bg-brand-beige/30">
+      <ul class="space-y-3">
+        <li class="flex items-start gap-4 p-4 rounded-xl hover:bg-white transition-colors"><i class="fa-solid fa-circle-check text-brand-darkpink text-2xl mt-0.5"></i><span class="leading-relaxed">「AIを使えばいい」と聞くけれど、具体的に何をどう活用すればいいか分からない</span></li>
+        <li class="flex items-start gap-4 p-4 rounded-xl hover:bg-white transition-colors"><i class="fa-solid fa-circle-check text-brand-darkpink text-2xl mt-0.5"></i><span class="leading-relaxed">自分の経験を発信に活かしたいのに、何から書けばいいか迷って手が止まる</span></li>
+        <li class="flex items-start gap-4 p-4 rounded-xl hover:bg-white transition-colors"><i class="fa-solid fa-circle-check text-brand-darkpink text-2xl mt-0.5"></i><span class="leading-relaxed">「今さら発信なんて」「AIとか苦手だし」と、自分の可能性に蓋をしてしまう</span></li>
+        <li class="flex items-start gap-4 p-4 rounded-xl hover:bg-white transition-colors"><i class="fa-solid fa-circle-check text-brand-darkpink text-2xl mt-0.5"></i><span class="leading-relaxed">夜、一人になると「このままでいいのかな……」と将来の不安がよぎる</span></li>
+        <li class="flex items-start gap-4 p-4 rounded-xl hover:bg-white transition-colors"><i class="fa-solid fa-circle-check text-brand-darkpink text-2xl mt-0.5"></i><span class="leading-relaxed">「もっと自分の経験を活かしたい」「自由に、自分の力で収入を作りたい」</span></li>
+      </ul>
+      <div class="mt-10 text-center">
+        <p class="font-serif text-xl md:text-2xl text-brand-brown font-bold leading-relaxed">そう願うのは、決して<span class="text-brand-gold">わがまま</span>ではないですし、<br class="hidden sm:block">あなたのやり方が悪いわけでもないのです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Story -->
+<section id="story" class="py-20 lg:py-28 bg-brand-pink/20 scroll-mt-20">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-brown mb-4 leading-snug">発信・収益化には、<br><span class="nw">知っているかで差がつく</span><br>「型」がある</h2>
+      <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full"></div>
+    </div>
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-12">
+      <div class="w-full md:w-1/3 flex justify-center md:sticky md:top-32">
+        <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full p-2 bg-white shadow-xl">
+          <img src="tsumugi.jpg" alt="つむぎ" class="w-full h-full object-cover rounded-full" style="object-position:50% 20%">
+          <div class="absolute -bottom-2 -right-2 bg-brand-gold text-white w-16 h-16 rounded-full flex items-center justify-center font-serif font-bold shadow-lg border-4 border-white text-sm">つむぎ</div>
+        </div>
+      </div>
+      <div class="w-full md:w-2/3 prose-tsumugi text-brand-brown/90">
+        <p>はじめまして、つむぎです。今でこそ「AI×恋愛コンテンツ」で発信・収益化の方法をお伝えしていますが、私自身もたくさんの遠回りをしてきました。</p>
+        <p>職歴としては、経営戦略コンサルタントとして企業の戦略設計に携わってきました。一方でプライベートでは、二度の離婚を経験し、婚活や出会いパーティーには50回以上参加しています。</p>
+        <p class="font-serif text-xl text-brand-brown">「今度こそ、うまくいくかもしれない」</p>
+        <p>そう思って行動しても空回りし、相手の反応に一喜一憂する毎日。「私って、何をやっているんだろう」と一人で落ち込んだことも、一度や二度ではありません。</p>
+        <p>二度の結婚生活を終えてもなお、人との関わりを求めている自分に対する恥ずかしさや悔しさ。「どうして私は、いつも同じところでつまずくんだろう？」と、何度も悩みました。</p>
+        <p>でもね、数々の失敗と経験を重ねる中で、大切な気づきを得たのです。</p>
+        <div class="glass-card rounded-2xl p-6 md:p-8 mb-8 font-serif text-lg leading-loose text-brand-brown">
+          うまくいかないのは、「才能がないから」でも「頑張りが足りないから」でもない。<br>
+          伝え方には、知っているかどうかで結果が大きく変わる<span class="text-brand-gold font-bold">「型」</span>が存在するのです。
+        </div>
+        <p class="!mb-0">実は、経営戦略で培った視点と自身の経験を掛け合わせ、「人の心を動かす発信」の仕組みをひとつずつ紐解いていくと、これまで見えなかった「売れる発信」のロジックがはっきりしてきたんです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section id="results" class="py-20 lg:py-28 bg-white scroll-mt-20">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-brown mb-4 leading-snug"><span class="nw">実績ゼロ・フォロワーゼロ</span><br class="sm:hidden">からの積み上げ</h2>
+      <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full"></div>
+      <p class="mt-6 text-brand-brown/70 leading-relaxed max-w-2xl mx-auto">特別な才能や、最初からの影響力があったわけではありません。「実績ゼロ・フォロワーゼロ」の状態から、ひとつずつ積み上げてきたリアルな数値です。</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="glass-card bg-brand-beige rounded-2xl p-8 text-center">
+        <div class="w-14 h-14 mx-auto rounded-full bg-white text-brand-gold flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-book"></i></div>
+        <div class="mt-4 text-xs tracking-widest font-bold text-brand-brown/60">Brain（コンテンツ販売）</div>
+        <div class="mt-3 font-serif text-lg leading-relaxed">販売開始からたった2週間で<br><span class="gradient-text text-4xl font-bold">11個</span> 購入達成</div>
+        <div class="mt-2 font-serif">★5レビューを3件獲得</div>
+      </div>
+      <div class="glass-card bg-brand-beige rounded-2xl p-8 text-center">
+        <div class="w-14 h-14 mx-auto rounded-full bg-white text-brand-gold flex items-center justify-center text-2xl shadow-sm"><i class="fa-brands fa-x-twitter"></i></div>
+        <div class="mt-4 text-xs tracking-widest font-bold text-brand-brown/60">X（旧Twitter）</div>
+        <div class="mt-3 font-serif text-lg leading-relaxed">運用開始から数日で、いいね・引用リポストなどのエンゲージメントを獲得</div>
+      </div>
+      <div class="glass-card bg-brand-beige rounded-2xl p-8 text-center">
+        <div class="w-14 h-14 mx-auto rounded-full bg-white text-brand-gold flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="mt-4 text-xs tracking-widest font-bold text-brand-brown/60">再現性・手法</div>
+        <div class="mt-3 font-serif text-lg leading-relaxed">戦略的アプローチとAI活用により、ゼロからのマネタイズ構造を構築</div>
+      </div>
+    </div>
+    <div class="mt-14 max-w-2xl mx-auto prose-tsumugi text-brand-brown/90">
+      <p>Brainで初めて購入通知が届き、高評価レビューをいただいたとき、画面を見つめながら胸がいっぱいになりました。数字そのもの以上に、「自分の経験が誰かの役に立った」という事実が何より嬉しかったんですよね。</p>
+      <p class="font-serif text-xl text-brand-brown text-center !mb-0">「私には無理」と思っている方にこそお伝えしたい。<br>正しい「型」と手法さえ知れば、<br class="sm:hidden">誰でも一歩ずつ積み上げていくことができます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Media -->
+<section id="media" class="py-20 lg:py-28 bg-brand-beige scroll-mt-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-brown mb-4 leading-snug">あなたの挑戦をサポートする<br>7つの発信メディア</h2>
+      <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full"></div>
+      <p class="mt-6 text-brand-brown/70">目的やスタイルに合わせてご覧ください。</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <a href="https://x.gd/w1Xtr" target="_blank" rel="noopener noreferrer" class="group glass-card rounded-2xl p-7 flex flex-col gap-3 hover:-translate-y-1 transition-transform">
+        <div class="w-14 h-14 rounded-full bg-green-50 text-green-600 flex items-center justify-center text-2xl group-hover:bg-green-600 group-hover:text-white transition-colors"><i class="fa-solid fa-book-open"></i></div>
+        <div class="text-xs tracking-widest font-bold text-brand-gold">note</div>
+        <h3 class="font-serif font-bold text-lg">マインド＆AI活用の気づき</h3>
+        <p class="text-sm leading-relaxed text-brand-brown/70 flex-1">発信や収益化のノウハウに加え、日々の気づきやAI活用の視点を綴っています。「これ、私のことかも…」と思えるヒントが見つかります。</p>
+        <span class="text-sm font-bold text-brand-gold">詳細はこちら <i class="fa-solid fa-arrow-right ml-1"></i></span>
+      </a>
+      <a href="https://brain-market.com/profiles/my_articles" target="_blank" rel="noopener noreferrer" class="group glass-card rounded-2xl p-7 flex flex-col gap-3 hover:-translate-y-1 transition-transform">
+        <div class="w-14 h-14 rounded-full bg-orange-50 text-orange-500 flex items-center justify-center text-2xl group-hover:bg-orange-500 group-hover:text-white transition-colors"><i class="fa-solid fa-brain"></i></div>
+        <div class="text-xs tracking-widest font-bold text-brand-gold">Brain</div>
+        <h3 class="font-serif font-bold text-lg">マネタイズ＆コンテンツ作成の実践書</h3>
+        <p class="text-sm leading-relaxed text-brand-brown/70 flex-1">AIを活用したコンテンツ作成法や、自分の経験を価値に変えて届ける具体的な収益化手順をまとめています。</p>
+        <span class="text-sm font-bold text-brand-gold">詳細はこちら <i class="fa-solid fa-arrow-right ml-1"></i></span>
+      </a>
+      <a href="https://lin.ee/RO6WtBA" target="_blank" rel="noopener noreferrer" class="group glass-card rounded-2xl p-7 flex flex-col gap-3 hover:-translate-y-1 transition-transform">
+        <div class="w-14 h-14 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-2xl group-hover:bg-emerald-500 group-hover:text-white transition-colors"><i class="fa-brands fa-line"></i></div>
+        <div class="text-xs tracking-widest font-bold text-brand-gold">公式LINE</div>
+        <h3 class="font-serif font-bold text-lg">限定特典＆Weekly通信</h3>
+        <p class="text-sm leading-relaxed text-brand-brown/70 flex-1">ご登録いただいた方限定で「収益化ロードマップ」などの無料特典をお渡ししています。毎週日曜日には、発信に役立つ限定コラムもお届けします。</p>
+        <span class="text-sm font-bold text-brand-gold">詳細はこちら <i class="fa-solid fa-arrow-right ml-1"></i></span>
+      </a>
+      <a href="https://x.gd/X5gJ0" target="_blank" rel="noopener noreferrer" class="group glass-card rounded-2xl p-7 flex flex-col gap-3 hover:-translate-y-1 transition-transform">
+        <div class="w-14 h-14 rounded-full bg-red-50 text-red-500 flex items-center justify-center text-2xl group-hover:bg-red-500 group-hover:text-white transition-colors"><i class="fa-brands fa-youtube"></i></div>
+        <div class="text-xs tracking-widest font-bold text-brand-gold">YouTube（Podcast）</div>
+        <h3 class="font-serif font-bold text-lg">制作の裏側を“聞き流し”で</h3>
+        <p class="text-sm leading-relaxed text-brand-brown/70 flex-1">コンテンツ制作の裏側や思考プロセスを、音声コンテンツとしてお届けしています。</p>
+        <span class="text-sm font-bold text-brand-gold">詳細はこちら <i class="fa-solid fa-arrow-right ml-1"></i></span>
+      </a>
+      <a href="https://x.gd/6A2FX" target="_blank" rel="noopener noreferrer" class="group glass-card rounded-2xl p-7 flex flex-col gap-3 hover:-translate-y-1 transition-transform">
+        <div class="w-14 h-14 rounded-full bg-gray-50 text-gray-900 flex items-center justify-center text-2xl group-hover:bg-gray-900 group-hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></div>
+        <div class="text-xs tracking-widest font-bold text-brand-gold">X（旧Twitter）</div>
+        <h3 class="font-serif font-bold text-lg">日々の気づき＆新作のお知らせ</h3>
+        <p class="text-sm leading-relaxed text-brand-brown/70 flex-1">最新の活動情報や日々の気づき、コンテンツのリリース情報をタイムリーに発信しています。</p>
+        <span class="text-sm font-bold text-brand-gold">詳細はこちら <i class="fa-solid fa-arrow-right ml-1"></i></span>
+      </a>
+      <a href="https://x.gd/66d9El" target="_blank" rel="noopener noreferrer" class="group glass-card rounded-2xl p-7 flex flex-col gap-3 hover:-translate-y-1 transition-transform">
+        <div class="w-14 h-14 rounded-full bg-yellow-50 text-yellow-600 flex items-center justify-center text-2xl group-hover:bg-yellow-500 group-hover:text-white transition-colors"><i class="fa-solid fa-store"></i></div>
+        <div class="text-xs tracking-widest font-bold text-brand-gold">ココナラ</div>
+        <h3 class="font-serif font-bold text-lg">ココナラでも、つながれます</h3>
+        <p class="text-sm leading-relaxed text-brand-brown/70 flex-1">ココナラでも、つむぎのコンテンツをご覧いただけます。</p>
+        <span class="text-sm font-bold text-brand-gold">詳細はこちら <i class="fa-solid fa-arrow-right ml-1"></i></span>
+      </a>
+      <a href="https://x.gd/dsNW6" target="_blank" rel="noopener noreferrer" class="group glass-card rounded-2xl p-7 flex flex-col gap-3 hover:-translate-y-1 transition-transform sm:col-span-2 lg:col-span-1 lg:col-start-2">
+        <div class="w-14 h-14 rounded-full bg-pink-50 text-pink-500 flex items-center justify-center text-2xl group-hover:bg-pink-500 group-hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></div>
+        <div class="text-xs tracking-widest font-bold text-brand-gold">Instagram</div>
+        <h3 class="font-serif font-bold text-lg">日々の発信＆新作のお知らせ</h3>
+        <p class="text-sm leading-relaxed text-brand-brown/70 flex-1">最新の活動や新作の情報を、Instagramでもお届けしています。</p>
+        <span class="text-sm font-bold text-brand-gold">詳細はこちら <i class="fa-solid fa-arrow-right ml-1"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Closing -->
+<section class="py-20 lg:py-28 bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-brown mb-4 leading-snug">最後に<br>あなたの経験は、<br class="sm:hidden">誰かの希望になる</h2>
+      <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full"></div>
+    </div>
+    <div class="glass-card bg-brand-beige/40 rounded-3xl p-7 md:p-12 prose-tsumugi text-brand-brown/90">
+      <p>ここまで読んでくださり、本当にありがとうございます。</p>
+      <p>きっとあなたにも、これまでの発信や挑戦の中で、嬉しかったこと、苦しかったこと、悩んだ時間がたくさんあったのではないでしょうか。</p>
+      <p>発信にたった一つの正解はありませんし、モチロン！誰かと比べて焦る必要もないです。</p>
+      <p>私はただ、あなたが自分自身の経験を大切にしながら、心から納得できる発信をし、「挑戦してよかった」と思える時間を過ごしてほしいと心から願っています。</p>
+      <p>私自身も、まだまだ挑戦の途中にいます。上から教えるのではなく、これからも同じ目線で寄り添いながら、真摯に発信を届けていきたいです。</p>
+      <p class="font-serif text-xl text-brand-brown !mb-0">あなたの発信が、実りあるものになりますように。</p>
+      <div class="mt-8 flex items-center justify-end gap-4">
+        <span class="font-serif text-lg">つむぎ（Tsumugi）</span>
+        <img src="tsumugi.jpg" alt="つむぎ" class="w-16 h-16 rounded-full object-cover border-2 border-brand-lightgold" style="object-position:50% 18%">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gifts -->
+<section id="gifts" class="py-20 lg:py-28 bg-gradient-to-b from-brand-beige to-brand-pink/40 relative overflow-hidden scroll-mt-20">
+  <div class="absolute top-10 left-10 text-brand-gold/20 text-9xl -rotate-12 select-none hidden md:block"><i class="fa-solid fa-gift"></i></div>
+  <div class="absolute bottom-10 right-10 text-brand-darkpink/30 text-9xl rotate-12 select-none hidden md:block"><i class="fa-solid fa-gem"></i></div>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="bg-white rounded-3xl p-6 md:p-12 shadow-2xl border-2 border-brand-lightgold">
+      <div class="text-center">
+        <div class="inline-block bg-brand-darkpink text-white text-sm font-bold px-4 py-1 rounded-full mb-6">公式LINE登録者限定プレゼント</div>
+        <h2 class="font-serif text-3xl md:text-5xl font-bold text-brand-brown mb-6 leading-tight">公式LINE登録で<br><span class="gradient-text text-4xl md:text-6xl">10大特典</span><br>無料プレゼント</h2>
+        <p class="text-brand-brown/80 mb-10 max-w-2xl mx-auto leading-relaxed">「AI×コンテンツ収益化」の全プレゼントを、ご登録いただいた方にすべて無料でお渡ししています。</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 text-left">
+        <div class="bg-brand-beige rounded-xl border border-brand-lightgold/60 p-5 flex gap-4"><div class="font-serif text-2xl font-bold text-brand-gold w-8 shrink-0">01</div><div><div class="font-serif font-bold leading-snug">note×AI×恋愛コンテンツ 収益化完全ロードマップ</div><div class="mt-1 text-sm leading-relaxed text-brand-brown/70">収益化までの全体像（地図）が分かり、迷わず正しい一歩を踏み出せます。</div></div></div>
+        <div class="bg-brand-beige rounded-xl border border-brand-lightgold/60 p-5 flex gap-4"><div class="font-serif text-2xl font-bold text-brand-gold w-8 shrink-0">02</div><div><div class="font-serif font-bold leading-snug">【購入者限定特典】神プロンプト全集（コピペ用実践テンプレート）</div><div class="mt-1 text-sm leading-relaxed text-brand-brown/70">市場分析から本文執筆、LINE導線作成までをコピペで完結させる4大プロンプト集。</div></div></div>
+        <div class="bg-brand-beige rounded-xl border border-brand-lightgold/60 p-5 flex gap-4"><div class="font-serif text-2xl font-bold text-brand-gold w-8 shrink-0">03</div><div><div class="font-serif font-bold leading-snug">AI×恋愛note「売れる企画＆目次」実録プロンプト出力サンプル3選</div><div class="mt-1 text-sm leading-relaxed text-brand-brown/70">「AIにどう指示すれば売れるか」の具体例・目次案が分かる実録お手本集。</div></div></div>
+        <div class="bg-brand-beige rounded-xl border border-brand-lightgold/60 p-5 flex gap-4"><div class="font-serif text-2xl font-bold text-brand-gold w-8 shrink-0">04</div><div><div class="font-serif font-bold leading-snug">3日で完成！はじめてのLINEステップ配信 実践ミニ講座</div><div class="mt-1 text-sm leading-relaxed text-brand-brown/70">自動で信頼関係を築き、高単価商品へつなげる仕組み作りの型を解説。</div></div></div>
+        <div class="bg-brand-beige rounded-xl border border-brand-lightgold/60 p-5 flex gap-4"><div class="font-serif text-2xl font-bold text-brand-gold w-8 shrink-0">05</div><div><div class="font-serif font-bold leading-snug">強み発掘×商品化アイデア出しプロンプト集</div><div class="mt-1 text-sm leading-relaxed text-brand-brown/70">あなたの経験から「勝てるテーマ・価格設定」をAIが自動抽出。</div></div></div>
+        <div class="bg-brand-beige rounded-xl border border-brand-lightgold/60 p-5 flex gap-4"><div class="font-serif text-2xl font-bold text-brand-gold w-8 shrink-0">06</div><div><div class="font-serif font-bold leading-snug">強み発掘メーカー 診断結果・深掘り＆完全覚醒プロンプト集 V4</div><div class="mt-1 text-sm leading-relaxed text-brand-brown/70">診断結果を長文note・Xポスト5本・自己紹介文へ爆速変換。</div></div></div>
+        <div class="bg-brand-beige rounded-xl border border-brand-lightgold/60 p-5 flex gap-4"><div class="font-serif text-2xl font-bold text-brand-gold w-8 shrink-0">07</div><div><div class="font-serif font-bold leading-snug">つむぎの無料コンセプト診断シート</div><div class="mt-1 text-sm leading-relaxed text-brand-brown/70">質問に答えるだけで、自分の中に眠る発信の軸（コンセプト）を発見。</div></div></div>
+        <div class="bg-brand-beige rounded-xl border border-brand-lightgold/60 p-5 flex gap-4"><div class="font-serif text-2xl font-bold text-brand-gold w-8 shrink-0">08</div><div><div class="font-serif font-bold leading-snug">【紹介者限定】AIで作る「売れるBrain企画」プロンプト集</div><div class="mt-1 text-sm leading-relaxed text-brand-brown/70">Brain市場でヒット商品を作るための10工程網羅プロンプト。</div></div></div>
+        <div class="bg-brand-beige rounded-xl border border-brand-lightgold/60 p-5 flex gap-4"><div class="font-serif text-2xl font-bold text-brand-gold w-8 shrink-0">09</div><div><div class="font-serif font-bold leading-snug">SNS告知文作成プロンプト集（4パターン）</div><div class="mt-1 text-sm leading-relaxed text-brand-brown/70">4つの型に合わせて、商品を入れるだけで告知ポストを自動生成。</div></div></div>
+        <div class="bg-brand-beige rounded-xl border border-brand-lightgold/60 p-5 flex gap-4"><div class="font-serif text-2xl font-bold text-brand-gold w-8 shrink-0">10</div><div><div class="font-serif font-bold leading-snug">【コンテンツ販売・営業戦略】実践チェックリスト</div><div class="mt-1 text-sm leading-relaxed text-brand-brown/70">「届ける ➔ 売る ➔ 検証する」の漏れをなくし、確実に成果へつなげます。</div></div></div>
+      </div>
+      <div class="text-center">
+        <div class="font-serif text-lg leading-loose text-brand-brown mb-4">「自分の強みが分からない……」<br>「コンテンツを作っても1冊も売れなかったらどうしよう……」</div>
+        <p class="text-brand-brown/80 leading-relaxed max-w-2xl mx-auto mb-10">そんな悩みを抱える方でも、ステップ順に進めるだけで【強みの抽出 ➔ 商品企画 ➔ AI一括執筆 ➔ SNS集客 ➔ LINE自動化】まで一気に完結できる実践型ツール集です。ぜひ、お受け取りください。</p>
+        <a href="https://lin.ee/qHoiPLr" target="_blank" rel="noopener noreferrer" class="cta-btn text-white px-8 py-5 rounded-full font-bold text-xl md:text-2xl flex items-center justify-center gap-3 w-full md:w-4/5 mx-auto group">
+          <i class="fab fa-line text-3xl group-hover:scale-110 transition-transform"></i>今すぐ無料で受け取る
+        </a>
+        <p class="mt-4 text-sm text-brand-brown/60">※登録無料。いつでもブロックできます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-brand-brown text-brand-beige py-12 text-center">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="font-serif text-2xl font-bold mb-6 flex items-center justify-center gap-2"><span class="text-brand-gold"><i class="fa-solid fa-pen-nib"></i></span>つむぎ</div>
+    <div class="flex justify-center gap-6 mb-8 text-xl">
+      <a href="https://x.gd/w1Xtr" target="_blank" rel="noopener noreferrer" class="text-brand-beige/70 hover:text-white" aria-label="note"><i class="fa-solid fa-book-open"></i></a>
+      <a href="https://x.gd/6A2FX" target="_blank" rel="noopener noreferrer" class="text-brand-beige/70 hover:text-white" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://x.gd/dsNW6" target="_blank" rel="noopener noreferrer" class="text-brand-beige/70 hover:text-white" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://lin.ee/qHoiPLr" target="_blank" rel="noopener noreferrer" class="text-brand-beige/70 hover:text-white" aria-label="公式LINE"><i class="fa-brands fa-line"></i></a>
+    </div>
+    <p class="text-brand-beige/50 text-sm">© つむぎ｜Tsumugi</p>
+  </div>
+</footer>
+
+<script>
+const btn=document.getElementById('mobile-menu-btn'),menu=document.getElementById('mobile-menu'),icon=btn.querySelector('i'),header=document.getElementById('header');
+function closeMenu(){menu.classList.remove('open');icon.classList.replace('fa-xmark','fa-bars')}
+btn.addEventListener('click',()=>{menu.classList.toggle('open');menu.classList.contains('open')?icon.classList.replace('fa-bars','fa-xmark'):icon.classList.replace('fa-xmark','fa-bars')});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+window.addEventListener('scroll',()=>{header.classList.toggle('shadow-md',scrollY>10);header.classList.toggle('shadow-sm',scrollY<=10)});
+</script>
+</body>
+</html>
