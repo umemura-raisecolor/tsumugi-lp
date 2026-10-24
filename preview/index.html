@@ -111,9 +111,23 @@ section{padding:clamp(80px,10vw,140px) 0;position:relative}
 
 /* ---------- worries ---------- */
 .worries{background:var(--mist)}
-.wl{list-style:none;margin:0;padding:0;border-top:1px solid #C9CAD2}
-.wl li{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;padding:26px 0;border-bottom:1px solid #C9CAD2;font-size:clamp(18px,1.7vw,22px);line-height:1.8;font-family:var(--serif);font-weight:500}
-.wl li::before{content:"";width:20px;height:20px;margin-top:.55em;border:1.5px solid var(--gold);border-radius:50%;background:radial-gradient(circle,var(--gold) 0 4px,transparent 5px)}
+.wl{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.wbtn{width:100%;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center;text-align:left;background:var(--paper);border:1px solid #D3D3DA;border-radius:16px;padding:20px 24px;font:inherit;font-family:var(--serif);font-weight:500;font-size:clamp(17px,1.6vw,21px);line-height:1.75;color:var(--text);cursor:pointer;transition:background .35s,color .35s,border-color .35s,transform .25s,box-shadow .35s}
+.wbtn:hover{transform:translateX(6px);border-color:var(--gold)}
+.wbtn .box{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--gold);position:relative;transition:background .3s,border-color .3s}
+.wbtn .box::after{content:"";position:absolute;left:9px;top:5px;width:8px;height:14px;border:solid var(--ink);border-width:0 2.5px 2.5px 0;transform:rotate(45deg) scale(0);transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.wbtn[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 14px 30px rgba(27,35,51,.25)}
+.wbtn[aria-pressed="true"] .box{background:var(--gold-lt);border-color:var(--gold-lt)}
+.wbtn[aria-pressed="true"] .box::after{transform:rotate(45deg) scale(1)}
+.worries-hint{margin:28px 0 0;font-size:15px;color:var(--gold);display:flex;align-items:center;gap:10px}
+.worries-hint::before{content:"";width:28px;height:1px;background:var(--gold)}
+.meter{margin:14px 0 24px;display:flex;align-items:baseline;gap:8px;font-family:var(--serif)}
+.meter-n{font-size:clamp(72px,9vw,120px);font-weight:800;line-height:1;color:var(--ink);display:inline-block;transition:transform .3s}
+.meter-n.pop{animation:pop .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.25);color:var(--gold)}100%{transform:scale(1)}}
+.meter-of{font-size:18px;color:var(--muted)}
+.answer.lit{box-shadow:0 0 0 3px var(--gold-lt),0 24px 50px rgba(27,35,51,.25)}
+.answer{transition:box-shadow .5s}
 .worries-grid{display:grid;gap:48px}
 @media (min-width:900px){.worries-grid{grid-template-columns:.8fr 1.2fr;gap:80px}}
 .worries-intro{font-size:18px;color:var(--muted);margin:0}
@@ -311,14 +325,16 @@ footer a{text-decoration:none;color:#C9CDD6}
         <div class="sec-head" style="display:block">
           <h2>こんなお悩みは<br>ありませんか？</h2>
         </div>
+        <p class="worries-hint">当てはまるものを、タップしてみてください</p>
+        <div class="meter" aria-live="polite"><span class="meter-n" id="wN">0</span><span class="meter-of">／5 当てはまる</span></div>
         <p class="worries-intro"><span class="ib">頑張って記事を書いているのに、</span><span class="ib">なぜか成果や収益につながらない……。</span><span class="ib">そんなモヤモヤを抱えていませんか？</span></p>
       </div>
-      <ul class="wl">
-        <li>「AIを使えばいい」と聞くけれど、具体的に何をどう活用すればいいか分からない</li>
-        <li>自分の経験を発信に活かしたいのに、何から書けばいいか迷って手が止まる</li>
-        <li>「今さら発信なんて」「AIとか苦手だし」と、自分の可能性に蓋をしてしまう</li>
-        <li>夜、一人になると「このままでいいのかな……」と将来の不安がよぎる</li>
-        <li>「もっと自分の経験を活かしたい」「自由に、自分の力で収入を作りたい」</li>
+      <ul class="wl" id="wl">
+        <li><button type="button" class="wbtn" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="wt">「AIを使えばいい」と聞くけれど、具体的に何をどう活用すればいいか分からない</span></button></li>
+        <li><button type="button" class="wbtn" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="wt">自分の経験を発信に活かしたいのに、何から書けばいいか迷って手が止まる</span></button></li>
+        <li><button type="button" class="wbtn" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="wt">「今さら発信なんて」「AIとか苦手だし」と、自分の可能性に蓋をしてしまう</span></button></li>
+        <li><button type="button" class="wbtn" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="wt">夜、一人になると「このままでいいのかな……」と将来の不安がよぎる</span></button></li>
+        <li><button type="button" class="wbtn" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="wt">「もっと自分の経験を活かしたい」「自由に、自分の力で収入を作りたい」</span></button></li>
       </ul>
     </div>
     <div class="answer">
@@ -511,6 +527,17 @@ footer a{text-decoration:none;color:#C9CDD6}
       co.observe(cnt);
     } else { cnt.textContent=to; }
   }
+
+  // worries checklist
+  (function(){
+    var btns=document.querySelectorAll('.wbtn'),n=document.getElementById('wN'),ans=document.querySelector('.answer');
+    btns.forEach(function(b){b.addEventListener('click',function(){
+      b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');
+      var c=document.querySelectorAll('.wbtn[aria-pressed="true"]').length;
+      n.textContent=c;n.classList.remove('pop');void n.offsetWidth;n.classList.add('pop');
+      ans.classList.toggle('lit',c>0);
+    })});
+  })();
   var targets=[document.getElementById('kata'),document.getElementById('giftGrid')];
   if(!('IntersectionObserver' in window)){targets.forEach(function(t){t.classList.add('on')});return}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.25});
