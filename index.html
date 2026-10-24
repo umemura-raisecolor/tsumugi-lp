@@ -95,6 +95,21 @@ h1,h2,h3{font-family:var(--serif);font-weight:800;margin:0;line-height:1.4;lette
 .js .hero-photo .frame{animation:unveil 1.4s .2s cubic-bezier(.7,0,.2,1) both}
 .js .hero-photo .card{animation:rise 1s 1.2s cubic-bezier(.2,.7,.2,1) both}
 
+/* hero: photo as a dim background (same treatment as the guide page cover) */
+.hero{padding:0;min-height:min(92vh,760px);display:flex;align-items:center}
+.hero-grid{width:min(1180px,100% - 48px);padding:128px 0 40px;display:block}
+.hero-copy{padding-bottom:32px;position:relative;z-index:2}
+.hero-bg{position:absolute;top:0;right:0;bottom:0;width:62%;opacity:.4;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%,#000 85%,rgba(0,0,0,.6) 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 45%,#000 85%,rgba(0,0,0,.6) 100%);pointer-events:none}
+.hero-bg .sl{position:absolute;inset:0;background-size:cover;background-repeat:no-repeat;opacity:0;transform:scale(1.04);transition:opacity 1.8s ease,transform 7s linear}
+.hero-bg .sl.is-on{opacity:1;transform:scale(1)}
+.hero-bg .s1{background-image:url(tsumugi.jpg);background-position:50% 20%}
+.hero-bg .s2{background-image:url(tsumugi-navy.jpg);background-position:50% 22%}
+.hero-bg .s3{background-image:url(tsumugi-pc.jpg);background-position:45% 30%}
+.hero-bg::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,var(--ink) 0%,rgba(27,35,51,0) 30%)}
+@keyframes fadebg{from{opacity:0;transform:scale(1.06)}to{opacity:.4;transform:none}}
+.js .hero-bg{animation:fadebg 2s .1s cubic-bezier(.2,.7,.2,1) both}
+@media (max-width:899px){.hero{min-height:0}.hero-grid{padding-top:104px}.hero-bg{width:100%;opacity:.24;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%)}.hero-bg .s1{background-position:60% 18%}@keyframes fadebgsp{from{opacity:0}to{opacity:.24}}.js .hero-bg{animation-name:fadebgsp}}
+
 /* ---------- the thread (scroll-drawn gold line) ---------- */
 .thread{position:fixed;left:max(14px,calc((100vw - 1180px)/2 - 48px));top:72px;bottom:0;width:2px;z-index:40;pointer-events:none;display:none}
 .thread i{position:absolute;left:0;top:0;width:2px;height:100%;background:linear-gradient(var(--gold),var(--gold-lt));transform-origin:top;transform:scaleY(var(--p,0))}
@@ -289,6 +304,7 @@ footer a{text-decoration:none;color:#C9CDD6}
 
 <!-- HERO -->
 <div class="hero">
+  <div class="hero-bg" role="img" aria-label="つむぎのプロフィール写真"><div class="sl s1 is-on"></div><div class="sl s2"></div><div class="sl s3"></div></div>
   <div class="vert" aria-hidden="true">遠回りの数だけ、伝えられることがある</div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -303,14 +319,6 @@ footer a{text-decoration:none;color:#C9CDD6}
           <span class="spark s1" aria-hidden="true"></span><span class="spark s2" aria-hidden="true"></span>
         </a>
         <span class="note">登録無料</span>
-      </div>
-    </div>
-    <div class="hero-photo">
-      <div class="ring" aria-hidden="true"></div>
-      <div class="frame"><img src="tsumugi.jpg" alt="つむぎ（Tsumugi）"></div>
-      <div class="card">
-        <b>つむぎ｜恋愛コンテンツ・プロデューサー</b>
-        <i>遠回りの数だけ、伝えられることがある。</i>
       </div>
     </div>
   </div>
@@ -543,6 +551,10 @@ footer a{text-decoration:none;color:#C9CDD6}
   targets.forEach(function(t){io.observe(t)});
   document.querySelectorAll('.gift').forEach(function(g,i){g.style.transitionDelay=(i*0.07)+'s'});
 })();
+</script>
+<script>
+(function(){var sl=document.querySelectorAll('.hero-bg .sl');if(sl.length<2)return;var n=0;
+setInterval(function(){sl[n].classList.remove('is-on');n=(n+1)%sl.length;sl[n].classList.add('is-on')},6000)})();
 </script>
 </body>
 </html>
