@@ -145,6 +145,7 @@ section{padding:clamp(80px,10vw,140px) 0;position:relative}
 .res .where{font-size:15px;color:var(--muted)}
 .res-main .where{color:var(--gold-lt)}
 .res .figure{font-family:var(--serif);font-weight:800;line-height:1;margin:18px 0 8px;font-size:clamp(84px,10vw,150px);color:var(--gold-lt)}
+.res .figure .count{display:inline-block;min-width:1.1em;font-variant-numeric:tabular-nums}
 .res .figure small{font-size:.32em;color:#fff;margin-left:8px}
 .res h3{font-size:22px;line-height:1.7;font-weight:700}
 .res-main h3{font-size:clamp(20px,2vw,26px)}
@@ -341,7 +342,7 @@ footer a{text-decoration:none;color:#C9CDD6}
       <div class="res res-main">
         <div>
           <div class="where">Brain（コンテンツ販売）</div>
-          <div class="figure">11<small>個購入</small></div>
+          <div class="figure"><span class="count" data-to="11" aria-label="11">11</span><small>個購入</small></div>
           <h3>販売開始から、たった2週間で達成</h3>
         </div>
         <div class="stars">★★★★★<span>レビュー3件獲得</span></div>
@@ -456,6 +457,25 @@ footer a{text-decoration:none;color:#C9CDD6}
     thread.style.setProperty('--p',max>0?Math.min(1,y/max).toFixed(4):0);
   }
   addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // count-up for the Brain number
+  var cnt=document.querySelector('.count');
+  if(cnt){
+    var to=+cnt.dataset.to,done=false;
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce){cnt.textContent='0';}
+    var run=function(){
+      if(done||reduce)return;done=true;
+      var start=null,dur=1600;
+      var step=function(t){if(!start)start=t;var k=Math.min(1,(t-start)/dur);var e=1-Math.pow(1-k,3);
+        cnt.textContent=Math.round(e*to);if(k<1)requestAnimationFrame(step);else cnt.textContent=to;};
+      requestAnimationFrame(step);
+    };
+    if('IntersectionObserver' in window){
+      var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run();co.disconnect()}})},{threshold:.5});
+      co.observe(cnt);
+    } else { cnt.textContent=to; }
+  }
   var targets=[document.getElementById('kata'),document.getElementById('giftGrid')];
   if(!('IntersectionObserver' in window)){targets.forEach(function(t){t.classList.add('on')});return}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.25});
